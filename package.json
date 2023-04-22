@@ -1,0 +1,47 @@
+{
+    "name": "tabs-count-autowrap",
+    "displayName": "Tabs Count Autowrap",
+    "description": "auto enable wrapTabs config when tabs count exceeds certain number",
+    "version": "0.0.1",
+    "publisher": "ctf0",
+    "author": "ctf0",
+    "repository": "https://github.com/ctf0/vscode-tabs-count-autowrap",
+    "engines": {
+        "vscode": "^1.68.0"
+    },
+    "icon": "image/logo.png",
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onStartupFinished"
+    ],
+    "main": "./out/main",
+    "contributes": {
+        "configuration": {
+            "title": "Tabs Count Autowrap",
+            "type": "object",
+            "properties": {
+                "tabsCountAutowrap.threshold": {
+                    "type": "number",
+                    "default": 5,
+                    "markdownDescription": "enable the `#workbench.editor.wrapTabs#` when the tabs count exceeds this number"
+                }
+            }
+        }
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run esbuild-base -- --pure:console.log --minify",
+        "esbuild-base": "esbuild ./src/extension.ts --bundle --outfile=out/main.js --external:vscode --format=cjs --platform=node",
+        "esbuild": "npm run esbuild-base -- --sourcemap",
+        "esbuild-watch": "npm run esbuild-base -- --sourcemap --watch",
+        "watch": "npm run esbuild"
+    },
+    "devDependencies": {
+        "@types/node": "^18.15.13",
+        "@types/vscode": "^1.68.0",
+        "esbuild": "^0.17.17",
+        "typescript": "^5.0.4"
+    },
+    "dependencies": {}
+}
