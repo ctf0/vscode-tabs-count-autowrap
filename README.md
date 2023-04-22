@@ -1,0 +1,1 @@
+# vscode-tabs-count-autowrap
