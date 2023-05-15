@@ -22,25 +22,19 @@ export async function activate(context: vscode.ExtensionContext) {
 }
 
 function checkForTabsCount() {
-    if (openedTabsCountExceeded()) {
-        return updateConfig(true);
-    } else {
-        return updateConfig(false);
-    }
+    return updateConfig(openedTabsCountExceeded());
 }
 
 function updateConfig(state: boolean) {
-    return vscode.workspace.getConfiguration().update('workbench.editor.wrapTabs', state, true);
+    return vscode.workspace.getConfiguration().update('workbench.editor.wrapTabs', state);
 }
 
-export function readConfig() {
+function readConfig() {
     config = vscode.workspace.getConfiguration(PACKAGE_NAME);
 }
 
 function openedTabsCountExceeded(): boolean {
-    const count = config.threshold;
-
-    return !!vscode.window.tabGroups.all.find((group: vscode.TabGroup) => group.tabs.length > count);
+    return !!vscode.window.tabGroups.all.find((group: vscode.TabGroup) => group.tabs.length > config.threshold);
 }
 
 export function deactivate() { }
