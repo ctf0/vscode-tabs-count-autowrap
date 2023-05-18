@@ -26,7 +26,7 @@ function checkForTabsCount() {
 }
 
 function updateConfig(state: boolean) {
-    return vscode.workspace.getConfiguration().update('workbench.editor.wrapTabs', state);
+    return vscode.workspace.getConfiguration().update('workbench.editor.wrapTabs', state, true);
 }
 
 function readConfig() {

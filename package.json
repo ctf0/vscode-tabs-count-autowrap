@@ -2,7 +2,7 @@
     "name": "tabs-count-autowrap",
     "displayName": "Tabs Count Autowrap",
     "description": "auto enable wrapTabs config when tabs count exceeds certain number",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "publisher": "ctf0",
     "author": "ctf0",
     "repository": "https://github.com/ctf0/vscode-tabs-count-autowrap",
